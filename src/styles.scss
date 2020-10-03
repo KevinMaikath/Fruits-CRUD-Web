@@ -11,3 +11,24 @@
 p {
   margin: 0;
 }
+
+.error-container {
+  margin-bottom: 10px;
+
+  .error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EB445A;
+    font-size: 14px;
+
+    .validation-error-icon {
+      width: 20px;
+      height: 20px;
+      background-image: url("./assets/img/validation-error-icon.svg");
+      background-size: contain;
+      background-position: center;
+      margin-right: 5px;
+    }
+  }
+}

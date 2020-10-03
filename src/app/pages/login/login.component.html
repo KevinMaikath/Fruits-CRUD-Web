@@ -12,37 +12,83 @@
         </p></div>
     </div>
 
-    <form class="login-form">
-      <div class="form-field">
-        <label>{{ 'USERNAME' | translate }}:</label>
-        <div class="input-container">
-          <input type="text">
+    <form class="login-form" [formGroup]="loginForm">
+      <ng-container *ngIf="!isLoginSelected && loginForm.get('username')">
+        <div class="form-group">
+          <label for="username-input">{{ 'USERNAME' | translate }}:</label>
+          <div class="input-container">
+            <input id="username-input" type="text" formControlName="username">
+          </div>
         </div>
+
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validationMessages.username">
+            <div class="error-message"
+                 *ngIf="loginForm.get('username') && loginForm.get('username').hasError(validation.type)
+                 && (loginForm.get('username').dirty || loginForm.get('username').touched)">
+              <div class="validation-error-icon"></div>
+              <span>{{ validation.message | translate }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <div class="form-group">
+        <label for="email-input">{{ 'EMAIL' | translate }}:</label>
+        <div class="input-container">
+          <input id="email-input" type="email" formControlName="email">
+        </div>
+      </div>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="error-message"
+               *ngIf="loginForm.get('email').hasError(validation.type)
+                 && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            <div class="validation-error-icon"></div>
+            <span>{{ validation.message | translate }}</span>
+          </div>
+        </ng-container>
       </div>
 
-      <div class="form-field">
-        <label>{{ 'EMAIL' | translate }}:</label>
+      <div class="form-group">
+        <label for="password-input">{{ 'PASSWORD' | translate }}:</label>
         <div class="input-container">
-          <input type="email">
+          <input id="password-input" type="password" formControlName="password">
         </div>
+      </div>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validationMessages.password">
+          <div class="error-message"
+               *ngIf="loginForm.get('password').hasError(validation.type)
+                 && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            <div class="validation-error-icon"></div>
+            <span>{{ validation.message | translate }}</span>
+          </div>
+        </ng-container>
       </div>
 
-      <div class="form-field">
-        <label>{{ 'PASSWORD' | translate }}:</label>
-        <div class="input-container">
-          <input type="password">
+      <ng-container *ngIf="!isLoginSelected && loginForm.get('password_confirmation')">
+        <div class="form-group">
+          <label for="password-confirmation-input">{{ 'PASSWORD_REPEAT' | translate }}:</label>
+          <div class="input-container">
+            <input id="password-confirmation-input" type="password" formControlName="password_confirmation">
+          </div>
         </div>
-      </div>
 
-      <div class="form-field">
-        <label>{{ 'PASSWORD_REPEAT' | translate }}:</label>
-        <div class="input-container">
-          <input type="password">
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validationMessages.password_confirmation">
+            <div class="error-message"
+                 *ngIf="loginForm.get('password_confirmation') && loginForm.get('password_confirmation').hasError(validation.type)
+                 && (loginForm.get('password_confirmation').dirty || loginForm.get('password_confirmation').touched)">
+              <div class="validation-error-icon"></div>
+              <span>{{ validation.message | translate }}</span>
+            </div>
+          </ng-container>
         </div>
-      </div>
+      </ng-container>
     </form>
 
-    <div class="submit-btn">
+    <div class="submit-btn" [class.disabled]="!loginForm.valid" (click)="onSubmit()">
       <p>{{ 'CONFIRM' | translate }}</p>
     </div>
   </div>

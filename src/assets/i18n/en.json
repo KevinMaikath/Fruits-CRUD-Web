@@ -5,5 +5,9 @@
   "EMAIL": "Email",
   "PASSWORD": "Password",
   "PASSWORD_REPEAT": "Repeat password",
-  "CONFIRM": "Confirm"
+  "CONFIRM": "Confirm",
+  "VALIDATOR_REQUIRED": "Required field",
+  "VALIDATOR_INVALID_EMAIL": "Invalid email format",
+  "VALIDATOR_PASSWORD_MIN_LENGTH": "Password must contain 6 characters minimum",
+  "VALIDATOR_PASSWORD_MISMATCH": "Passwords don't match"
 }

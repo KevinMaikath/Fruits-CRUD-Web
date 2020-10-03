@@ -5,5 +5,9 @@
   "EMAIL": "Correo",
   "PASSWORD": "Contraseña",
   "PASSWORD_REPEAT": "Repetir contraseña",
-  "CONFIRM": "Confirmar"
+  "CONFIRM": "Confirmar",
+  "VALIDATOR_REQUIRED": "Campo obligatorio",
+  "VALIDATOR_INVALID_EMAIL": "Formato de correo no válido",
+  "VALIDATOR_PASSWORD_MIN_LENGTH": "La contraseña debe tener mínimo 6 caracteres",
+  "VALIDATOR_PASSWORD_MISMATCH": "Las contraseñas no coinciden"
 }

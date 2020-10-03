@@ -55,7 +55,7 @@
     .login-form {
       margin: 15px 20px;
 
-      .form-field {
+      .form-group {
         padding: 10px 15px;
         display: flex;
         justify-content: space-evenly;
@@ -96,6 +96,11 @@
 
       p {
         color: white;
+      }
+
+      &.disabled {
+        filter: opacity(0.6);
+        cursor:  default;
       }
     }
   }
