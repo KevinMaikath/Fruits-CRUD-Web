@@ -13,19 +13,19 @@
     </div>
 
     <form class="login-form" [formGroup]="loginForm">
-      <ng-container *ngIf="!isLoginSelected && loginForm.get('username')">
+      <ng-container *ngIf="loginForm.get('name').enabled">
         <div class="form-group">
-          <label for="username-input">{{ 'USERNAME' | translate }}:</label>
+          <label for="name-input">{{ 'USERNAME' | translate }}:</label>
           <div class="input-container">
-            <input id="username-input" type="text" formControlName="username">
+            <input id="name-input" type="text" formControlName="name">
           </div>
         </div>
 
         <div class="error-container">
-          <ng-container *ngFor="let validation of validationMessages.username">
+          <ng-container *ngFor="let validation of validationMessages.name">
             <div class="error-message"
-                 *ngIf="loginForm.get('username') && loginForm.get('username').hasError(validation.type)
-                 && (loginForm.get('username').dirty || loginForm.get('username').touched)">
+                 *ngIf="loginForm.get('name') && loginForm.get('name').hasError(validation.type)
+                 && (loginForm.get('name').dirty || loginForm.get('name').touched)">
               <div class="validation-error-icon"></div>
               <span>{{ validation.message | translate }}</span>
             </div>

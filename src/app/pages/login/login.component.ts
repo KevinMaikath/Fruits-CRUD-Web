@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   validationMessages = {
-    username: [{type: 'required', message: 'VALIDATOR_REQUIRED'}],
+    name: [{type: 'required', message: 'VALIDATOR_REQUIRED'}],
     email: [
       {type: 'required', message: 'VALIDATOR_REQUIRED'},
       {type: 'pattern', message: 'VALIDATOR_INVALID_EMAIL'}
@@ -26,7 +28,8 @@ export class LoginComponent implements OnInit {
     ]
   };
 
-  constructor() {
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   setFormGroup() {
     this.loginForm = new FormGroup({
-      username: new FormControl(
+      name: new FormControl(
         {disabled: true, value: ''},
         Validators.required
       ),
@@ -55,25 +58,40 @@ export class LoginComponent implements OnInit {
 
   onLoginTypeSelect(loginSelected: boolean) {
     if (this.isLoginSelected && !loginSelected) {
-      this.loginForm.get('username').disable();
-      this.loginForm.get('password_confirmation').disable();
-    } else if (!this.isLoginSelected && loginSelected) {
-      this.loginForm.get('username').enable();
+      this.loginForm.get('name').enable();
       this.loginForm.get('password_confirmation').enable();
+    } else if (!this.isLoginSelected && loginSelected) {
+      this.loginForm.get('name').disable();
+      this.loginForm.get('password_confirmation').disable();
     }
     this.isLoginSelected = loginSelected;
   }
 
-  checkPasswords(formGroup: FormGroup) {
-    if (!formGroup.get('password_confirmation')) {
+  checkPasswords(formControl: FormControl) {
+    if (formControl.disabled) {
       return null;
     }
-    const password = formGroup.get('password').value;
-    const confirmPassword = formGroup.get('password_confirmation').value;
+    const password = formControl.parent.get('password').value;
+    const confirmPassword = formControl.value;
     return password === confirmPassword ? null : {password_mismatch: true};
   }
 
-  onSubmit() {
-    console.log('onSubmit', this.loginForm.valid);
+  async onSubmit() {
+    if (!this.loginForm.valid) {
+      return;
+    }
+
+    let success = false;
+    if (this.isLoginSelected) {
+      const {email, password} = this.loginForm.value;
+      success = await this.authService.login(email, password);
+    } else {
+      const {name, email, password, password_confirmation} = this.loginForm.value;
+      success = await this.authService.register(name, email, password, password_confirmation);
+    }
+
+    if (success) {
+      this.router.navigate(['/fruit-list'], {replaceUrl: true});
+    }
   }
 }

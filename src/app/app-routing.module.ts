@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './pages/login/login.component';
 import {FruitListComponent} from './pages/fruit-list/fruit-list.component';
+import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'fruit-list',
-    component: FruitListComponent
+    component: FruitListComponent,
+    canActivate: [AuthGuard]
   },
 ];
 
