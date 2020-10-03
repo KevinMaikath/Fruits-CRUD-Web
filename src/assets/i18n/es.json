@@ -1,0 +1,9 @@
+{
+  "LOGIN": "Inicio de sesión",
+  "REGISTER": "Registro",
+  "USERNAME": "Nombre de usuario",
+  "EMAIL": "Correo",
+  "PASSWORD": "Contraseña",
+  "PASSWORD_REPEAT": "Repetir contraseña",
+  "CONFIRM": "Confirmar"
+}

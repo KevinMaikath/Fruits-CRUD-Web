@@ -1,5 +1,49 @@
 <div class="login-panel-container">
   <div class="login-panel">
 
+    <div class="login-img"></div>
+
+    <div class="selector">
+      <div class="selector-item" [class.selected]="isLoginSelected" (click)="onLoginTypeSelect(true)">
+        <p>{{ 'LOGIN' | translate }}</p>
+      </div>
+      <div class="selector-item" [class.selected]="!isLoginSelected" (click)="onLoginTypeSelect(false)">
+        <p>{{ 'REGISTER' | translate }}
+        </p></div>
+    </div>
+
+    <form class="login-form">
+      <div class="form-field">
+        <label>{{ 'USERNAME' | translate }}:</label>
+        <div class="input-container">
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>{{ 'EMAIL' | translate }}:</label>
+        <div class="input-container">
+          <input type="email">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>{{ 'PASSWORD' | translate }}:</label>
+        <div class="input-container">
+          <input type="password">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>{{ 'PASSWORD_REPEAT' | translate }}:</label>
+        <div class="input-container">
+          <input type="password">
+        </div>
+      </div>
+    </form>
+
+    <div class="submit-btn">
+      <p>{{ 'CONFIRM' | translate }}</p>
+    </div>
   </div>
 </div>

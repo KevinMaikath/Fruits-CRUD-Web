@@ -1,0 +1,9 @@
+{
+  "LOGIN": "Log in",
+  "REGISTER": "Register",
+  "USERNAME": "Username",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "PASSWORD_REPEAT": "Repeat password",
+  "CONFIRM": "Confirm"
+}

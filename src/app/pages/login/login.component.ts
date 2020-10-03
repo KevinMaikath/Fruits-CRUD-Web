@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  isLoginSelected = true;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+
+  onLoginTypeSelect(loginSelected: boolean) {
+    this.isLoginSelected = loginSelected;
+  }
 }
