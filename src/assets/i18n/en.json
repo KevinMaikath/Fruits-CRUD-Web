@@ -14,7 +14,9 @@
   "NAME": "Name",
   "SIZE": "Size",
   "COLOUR": "Colour",
+  "ACTIONS": "Actions",
   "FRUIT_CREATE": "New fruit",
   "FRUIT_EDIT": "Edit fruit",
-  "RESET": "Reset"
+  "RESET": "Reset",
+  "FRUIT_LIST": "Fruit list"
 }

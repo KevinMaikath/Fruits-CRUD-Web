@@ -19,7 +19,7 @@
 
 <div class="main">
   <div class="fruit-form-container">
-    <p class="form-title">{{ 'FRUIT_CREATE' | translate }}</p>
+    <p class="section-title">{{ 'FRUIT_CREATE' | translate }}</p>
     <!--    <p class="form-title">{{ 'FRUIT_EDIT' | translate }}</p>-->
     <form>
       <div class="form-group">
@@ -61,5 +61,52 @@
       </div>
     </div>
   </div>
-  <div class="fruit-list-container"></div>
+
+  <div class="fruit-list-container">
+    <p class="section-title">{{ 'FRUIT_LIST' | translate }}</p>
+    <table>
+      <tr>
+        <th>{{ 'NAME' | translate }}</th>
+        <th>{{ 'SIZE' | translate }}</th>
+        <th>{{ 'COLOUR' | translate }}</th>
+        <th>{{ 'ACTIONS' | translate }}</th>
+      </tr>
+      <tr>
+        <td>Peter</td>
+        <td>Griffin</td>
+        <td>$100</td>
+        <td>
+          <div class="div-button icon-only edit"></div>
+          <div class="div-button icon-only delete"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Lois</td>
+        <td>Griffin</td>
+        <td>$150</td>
+        <td>
+          <div class="div-button icon-only edit"></div>
+          <div class="div-button icon-only delete"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Joe</td>
+        <td>Swanson</td>
+        <td>Swanson</td>
+        <td>
+          <div class="div-button icon-only edit"></div>
+          <div class="div-button icon-only delete"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Cleveland</td>
+        <td>Brown</td>
+        <td>Brown</td>
+        <td>
+          <div class="div-button icon-only edit"></div>
+          <div class="div-button icon-only delete"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

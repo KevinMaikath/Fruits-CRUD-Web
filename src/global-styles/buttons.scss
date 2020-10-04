@@ -22,4 +22,25 @@
     filter: opacity(0.6);
     cursor: default;
   }
+
+  &.icon-only {
+    width: 22px;
+    height: 22px;
+    padding: 10px;
+    margin: 0 5px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+
+    &.edit {
+      background-image: url("../assets/img/edit-icon.svg");
+      background-color: var(--color-grey);
+    }
+
+    &.delete {
+      background-image: url("../assets/img/delete-icon.svg");
+      background-color: var(--color-danger);
+    }
+  }
 }
