@@ -10,5 +10,11 @@
   "VALIDATOR_REQUIRED": "Required field",
   "VALIDATOR_INVALID_EMAIL": "Invalid email format",
   "VALIDATOR_PASSWORD_MIN_LENGTH": "Password must contain 6 characters minimum",
-  "VALIDATOR_PASSWORD_MISMATCH": "Passwords don't match"
+  "VALIDATOR_PASSWORD_MISMATCH": "Passwords don't match",
+  "NAME": "Name",
+  "SIZE": "Size",
+  "COLOUR": "Colour",
+  "FRUIT_CREATE": "New fruit",
+  "FRUIT_EDIT": "Edit fruit",
+  "RESET": "Reset"
 }

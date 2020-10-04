@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-fruit-list',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FruitListComponent implements OnInit {
 
-  constructor() { }
+  sizeDropdownOpen = false;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  onSizeDropdown() {
+    this.sizeDropdownOpen = !this.sizeDropdownOpen;
+  }
 }

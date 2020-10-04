@@ -5,7 +5,6 @@
   .login-panel {
     width: 100%;
     max-width: 500px;
-    //height: 300px;
     margin: 0 auto;
     padding: 20px;
 
@@ -54,54 +53,10 @@
 
     .login-form {
       margin: 15px 20px;
-
-      .form-group {
-        padding: 10px 15px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-
-        label {
-          flex: 2;
-          text-align: right;
-        }
-
-        .input-container {
-          flex: 3;
-          padding-left: 25px;
-
-          input {
-            width: 75%;
-            outline: none;
-            padding: 10px 15px;
-
-            border-radius: 5px;
-            border: 1px solid black;
-          }
-        }
-      }
     }
 
-    .submit-btn {
-      width: 75px;
+    .div-button {
       margin: 5px auto;
-      padding: 10px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      background-color: var(--color-success);
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      p {
-        color: white;
-      }
-
-      &.disabled {
-        filter: opacity(0.6);
-        cursor:  default;
-      }
     }
   }
 }

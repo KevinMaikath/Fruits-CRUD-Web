@@ -10,5 +10,11 @@
   "VALIDATOR_REQUIRED": "Campo obligatorio",
   "VALIDATOR_INVALID_EMAIL": "Formato de correo no válido",
   "VALIDATOR_PASSWORD_MIN_LENGTH": "La contraseña debe tener mínimo 6 caracteres",
-  "VALIDATOR_PASSWORD_MISMATCH": "Las contraseñas no coinciden"
+  "VALIDATOR_PASSWORD_MISMATCH": "Las contraseñas no coinciden",
+  "NAME": "Nombre",
+  "SIZE": "Tamaño",
+  "COLOUR": "Color",
+  "FRUIT_CREATE": "Nueva fruta",
+  "FRUIT_EDIT": "Editar fruta",
+  "RESET": "Vaciar"
 }

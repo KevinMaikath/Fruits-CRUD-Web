@@ -1,0 +1,25 @@
+.div-button {
+  width: 75px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.success {
+    background-color: var(--color-success);
+    color: white;
+  }
+
+  &.reset {
+    background-color: var(--color-grey);
+    color: white;
+  }
+
+  &.disabled {
+    filter: opacity(0.6);
+    cursor: default;
+  }
+}

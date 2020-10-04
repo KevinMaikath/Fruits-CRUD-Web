@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "src/global-styles/_all";
+
+// Theme
 :root {
   --color-primary: #0275d8;
   --color-success: #5cb85c;
+  --color-grey: #b5b5b5;
 }
 
 * {
@@ -10,25 +14,4 @@
 
 body, p {
   margin: 0;
-}
-
-.error-container {
-  margin-bottom: 10px;
-
-  .error-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #EB445A;
-    font-size: 14px;
-
-    .validation-error-icon {
-      width: 20px;
-      height: 20px;
-      background-image: url("./assets/img/validation-error-icon.svg");
-      background-size: contain;
-      background-position: center;
-      margin-right: 5px;
-    }
-  }
 }
