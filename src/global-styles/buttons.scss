@@ -1,5 +1,5 @@
 .div-button {
-  width: 75px;
+  min-width: 75px;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -24,6 +24,7 @@
   }
 
   &.icon-only {
+    min-width: unset;
     width: 22px;
     height: 22px;
     padding: 10px;

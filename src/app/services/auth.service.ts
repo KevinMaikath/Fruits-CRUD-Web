@@ -51,7 +51,7 @@ export class AuthService {
 
   async logout() {
     try {
-      await this.http.post(`${this.API_URL}/register`, {}).pipe(take(1)).toPromise();
+      await this.http.post(`${this.API_URL}/logout`, {}).pipe(take(1)).toPromise();
       this.token.next('');
       await this.removeTokenFromSession();
     } catch (err) {
