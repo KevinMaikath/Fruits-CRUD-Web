@@ -19,7 +19,7 @@ npm install
 // example for environment.ts
 export const environment = {
   production: false,
-  API_URL: 'http://fruits-crud-api.test/api'
+  API_URL: 'http://your_API_URL/api'
 };
 ```
 - Run the project:
