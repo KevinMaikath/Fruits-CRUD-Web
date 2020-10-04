@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "src/global-styles/_all";
+
+// Theme
+:root {
+  --color-primary: #0275d8;
+  --color-success: #5cb85c;
+  --color-grey: #b5b5b5;
+  --color-danger: #d9534f;
+}
+
+* {
+  font-family: Calibri, serif;
+}
+
+body, p {
+  margin: 0;
+}

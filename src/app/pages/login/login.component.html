@@ -1,0 +1,109 @@
+<div class="login-panel-container">
+  <div class="login-panel">
+
+    <div class="login-img"></div>
+
+    <div class="selector">
+      <div class="selector-item" [class.selected]="isLoginSelected" (click)="onLoginTypeSelect(true)">
+        <p>{{ 'LOGIN' | translate }}</p>
+      </div>
+      <div class="selector-item" [class.selected]="!isLoginSelected" (click)="onLoginTypeSelect(false)">
+        <p>{{ 'REGISTER' | translate }}
+        </p></div>
+    </div>
+
+    <form class="login-form" [formGroup]="loginForm">
+      <ng-container *ngIf="loginForm.get('name').enabled">
+        <div class="form-group">
+          <label for="name-input">{{ 'USERNAME' | translate }}:</label>
+          <div class="input-container">
+            <input id="name-input" type="text" formControlName="name">
+          </div>
+        </div>
+
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validationMessages.name">
+            <div class="error-message"
+                 *ngIf="loginForm.get('name') && loginForm.get('name').hasError(validation.type)
+                 && (loginForm.get('name').dirty || loginForm.get('name').touched)">
+              <div class="validation-error-icon"></div>
+              <span>{{ validation.message | translate }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <div class="form-group">
+        <label for="email-input">{{ 'EMAIL' | translate }}:</label>
+        <div class="input-container">
+          <input id="email-input" type="email" formControlName="email">
+        </div>
+      </div>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="error-message"
+               *ngIf="loginForm.get('email').hasError(validation.type)
+                 && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            <div class="validation-error-icon"></div>
+            <span>{{ validation.message | translate }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="form-group">
+        <label for="password-input">{{ 'PASSWORD' | translate }}:</label>
+        <div class="input-container">
+          <input id="password-input" type="password" formControlName="password">
+        </div>
+      </div>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validationMessages.password">
+          <div class="error-message"
+               *ngIf="loginForm.get('password').hasError(validation.type)
+                 && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            <div class="validation-error-icon"></div>
+            <span>{{ validation.message | translate }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ng-container *ngIf="!isLoginSelected && loginForm.get('password_confirmation')">
+        <div class="form-group">
+          <label for="password-confirmation-input">{{ 'PASSWORD_REPEAT' | translate }}:</label>
+          <div class="input-container">
+            <input id="password-confirmation-input" type="password" formControlName="password_confirmation">
+          </div>
+        </div>
+
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validationMessages.password_confirmation">
+            <div class="error-message"
+                 *ngIf="loginForm.get('password_confirmation') && loginForm.get('password_confirmation').hasError(validation.type)
+                 && (loginForm.get('password_confirmation').dirty || loginForm.get('password_confirmation').touched)">
+              <div class="validation-error-icon"></div>
+              <span>{{ validation.message | translate }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </form>
+
+    <div class="error-container" *ngIf="showInvalidCredentialsError">
+      <div class="error-message">
+        <div class="validation-error-icon"></div>
+        <span>{{ 'INVALID_CREDENTIALS' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="error-container" *ngIf="showEmailAlreadyInUseError">
+      <div class="error-message">
+        <div class="validation-error-icon"></div>
+        <span>{{ 'EMAIL_ALREADY_IN_USE' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="div-button success" [class.disabled]="!loginForm.valid" (click)="onSubmit()">
+      <p>{{ 'CONFIRM' | translate }}</p>
+    </div>
+  </div>
+</div>

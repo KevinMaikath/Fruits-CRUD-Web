@@ -1,0 +1,64 @@
+.login-panel-container {
+  padding: 30px 15px;
+  max-width: 100%;
+
+  .login-panel {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+
+    border-radius: 20px;
+    border: 2px solid var(--color-primary);
+
+    .login-img {
+      margin: 15px auto 35px;
+      width: 150px;
+      height: 150px;
+      background-image: url("../../../assets/img/login-icon.svg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .selector {
+      width: 300px;
+      margin: auto;
+      height: 38px;
+      display: flex;
+      align-items: center;
+
+      border: 1px solid var(--color-primary);
+      border-radius: 10px;
+
+      .selector-item {
+        height: 40px;
+        margin: 0 -2px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+
+        p {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        &.selected {
+          background-color: var(--color-primary);
+          color: white;
+        }
+      }
+    }
+
+    .login-form {
+      margin: 15px 20px;
+    }
+
+    .div-button {
+      margin: 5px auto;
+      width: 75px;
+    }
+  }
+}

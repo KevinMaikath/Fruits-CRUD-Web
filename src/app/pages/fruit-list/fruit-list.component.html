@@ -1,0 +1,87 @@
+<div class="toolbar">
+  <div class="page-title">
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png"
+    />
+    <p>Fruit-CRUD-Web</p>
+  </div>
+
+  <div class="logout-container">
+    <p>{{ 'LOGOUT' | translate }}</p>
+    <img
+      width="35"
+      alt="logout"
+      src="../../../assets/img/log-out-icon.svg"
+      (click)="onLogout()"/>
+  </div>
+</div>
+
+<div class="main">
+  <div class="fruit-form-container">
+    <p class="section-title">{{ (editModeON ? 'FRUIT_EDIT' : 'FRUIT_CREATE') | translate }}</p>
+    <div class="form-group">
+      <label for="name-input">{{ 'NAME' | translate }}:</label>
+      <div class="input-container">
+        <input id="name-input" type="text" [(ngModel)]="currentFruit.name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="size-input">{{ 'SIZE' | translate }}:</label>
+      <div class="input-container">
+        <div #sizeDropdown id="size-input" class="size-dropdown" (click)="onSizeDropdown()"
+             [class.open]="sizeDropdownOpen">
+          <p>{{ currentFruit.size | translate }}</p>
+          <img width="24" alt="dropdown-arrow" src="../../../assets/img/arrow-down-icon.svg">
+          <div class="dropdown-content">
+            <p *ngFor="let option of fruitSizeOptions" (click)="onFruitSizeSelect(option)">
+              {{ option | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="colour-input">{{ 'COLOUR' | translate }}:</label>
+      <div class="input-container">
+        <input id="colour-input" type="text" [(ngModel)]="currentFruit.colour">
+      </div>
+    </div>
+
+    <div class="button-row">
+      <div class="div-button reset" *ngIf="!editModeON" (click)="onReset()">
+        <p>{{ 'RESET' | translate }}</p>
+      </div>
+      <div class="div-button reset" *ngIf="editModeON" (click)="onCreateNew()">
+        <p>{{ 'CREATE_NEW' | translate }}</p>
+      </div>
+      <div class="div-button success" [class.disabled]="!isFormValid()" (click)="onSubmit()">
+        <p>{{ 'CONFIRM' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fruit-list-container">
+    <p class="section-title">{{ 'FRUIT_LIST' | translate }}</p>
+    <table>
+      <tr>
+        <th>{{ 'NAME' | translate }}</th>
+        <th>{{ 'SIZE' | translate }}</th>
+        <th>{{ 'COLOUR' | translate }}</th>
+        <th>{{ 'ACTIONS' | translate }}</th>
+      </tr>
+      <tr *ngFor="let fruit of fruitList">
+        <td>{{ fruit.name }}</td>
+        <td>{{ fruit.size | translate }}</td>
+        <td>{{ fruit.colour || '' }}</td>
+        <td>
+          <div class="div-button icon-only edit" (click)="onFruitEdit(fruit)"></div>
+          <div class="div-button icon-only delete" (click)="onDelete(fruit.id)"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

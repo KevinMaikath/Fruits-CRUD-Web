@@ -1,0 +1,47 @@
+.div-button {
+  min-width: 75px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.success {
+    background-color: var(--color-success);
+    color: white;
+  }
+
+  &.reset {
+    background-color: var(--color-grey);
+    color: white;
+  }
+
+  &.disabled {
+    filter: opacity(0.6);
+    cursor: default;
+  }
+
+  &.icon-only {
+    min-width: unset;
+    width: 22px;
+    height: 22px;
+    padding: 10px;
+    margin: 0 5px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+
+    &.edit {
+      background-image: url("../assets/img/edit-icon.svg");
+      background-color: var(--color-grey);
+    }
+
+    &.delete {
+      background-image: url("../assets/img/delete-icon.svg");
+      background-color: var(--color-danger);
+    }
+  }
+}
