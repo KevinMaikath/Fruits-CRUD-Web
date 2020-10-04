@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,19 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private translateService: TranslateService) {
+  constructor(
+    private authService: AuthService,
+    private translateService: TranslateService
+  ) {
   }
 
   ngOnInit() {
+    this.setAuthToken();
     this.setLanguage();
+  }
+
+  setAuthToken() {
+    this.authService.setTokenFromSession();
   }
 
   /**

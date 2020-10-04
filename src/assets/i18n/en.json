@@ -1,6 +1,7 @@
 {
   "LOGIN": "Log in",
   "REGISTER": "Register",
+  "LOGOUT": "Log out",
   "USERNAME": "Username",
   "EMAIL": "Email",
   "PASSWORD": "Password",
