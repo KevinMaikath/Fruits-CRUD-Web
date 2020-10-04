@@ -18,5 +18,8 @@
   "FRUIT_CREATE": "Nueva fruta",
   "FRUIT_EDIT": "Editar fruta",
   "RESET": "Vaciar",
-  "FRUIT_LIST": "Lista de frutas"
+  "FRUIT_LIST": "Lista de frutas",
+  "SMALL": "Pequeño",
+  "MEDIUM": "Mediano",
+  "LARGE": "Grande"
 }

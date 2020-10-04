@@ -19,8 +19,7 @@
 
 <div class="main">
   <div class="fruit-form-container">
-    <p class="section-title">{{ 'FRUIT_CREATE' | translate }}</p>
-    <!--    <p class="form-title">{{ 'FRUIT_EDIT' | translate }}</p>-->
+    <p class="section-title">{{ (editModeON ? 'FRUIT_EDIT' : 'FRUIT_CREATE') | translate }}</p>
     <form>
       <div class="form-group">
         <label for="name-input">{{ 'NAME' | translate }}:</label>
@@ -33,12 +32,12 @@
         <label for="size-input">{{ 'SIZE' | translate }}:</label>
         <div class="input-container">
           <div id="size-input" class="size-dropdown" (click)="onSizeDropdown()" [class.open]="sizeDropdownOpen">
-            <p>Tamaño</p>
+            <p>{{ currentFruit.size | translate }}</p>
             <img width="24" alt="dropdown-arrow" src="../../../assets/img/arrow-down-icon.svg">
             <div class="dropdown-content">
-              <p>Grande</p>
-              <p>Grande</p>
-              <p>Grande</p>
+              <p *ngFor="let option of fruitSizeOptions" (click)="onFruitSizeSelect(option)">
+                {{ option | translate }}
+              </p>
             </div>
           </div>
         </div>
@@ -71,37 +70,10 @@
         <th>{{ 'COLOUR' | translate }}</th>
         <th>{{ 'ACTIONS' | translate }}</th>
       </tr>
-      <tr>
-        <td>Peter</td>
-        <td>Griffin</td>
-        <td>$100</td>
-        <td>
-          <div class="div-button icon-only edit"></div>
-          <div class="div-button icon-only delete"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>Lois</td>
-        <td>Griffin</td>
-        <td>$150</td>
-        <td>
-          <div class="div-button icon-only edit"></div>
-          <div class="div-button icon-only delete"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>Joe</td>
-        <td>Swanson</td>
-        <td>Swanson</td>
-        <td>
-          <div class="div-button icon-only edit"></div>
-          <div class="div-button icon-only delete"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>Cleveland</td>
-        <td>Brown</td>
-        <td>Brown</td>
+      <tr *ngFor="let fruit of fruitList">
+        <td>{{ fruit.name }}</td>
+        <td>{{ fruit.size | translate }}</td>
+        <td>{{ fruit.colour || '' }}</td>
         <td>
           <div class="div-button icon-only edit"></div>
           <div class="div-button icon-only delete"></div>

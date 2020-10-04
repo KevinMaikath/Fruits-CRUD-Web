@@ -18,5 +18,8 @@
   "FRUIT_CREATE": "New fruit",
   "FRUIT_EDIT": "Edit fruit",
   "RESET": "Reset",
-  "FRUIT_LIST": "Fruit list"
+  "FRUIT_LIST": "Fruit list",
+  "SMALL": "Small",
+  "MEDIUM": "Medium",
+  "LARGE": "Large"
 }
