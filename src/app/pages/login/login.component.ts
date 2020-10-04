@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   isLoginSelected = true;
   loginForm: FormGroup;
+  showInvalidCredentialsError = false;
+  showEmailAlreadyInUseError = false;
 
   validationMessages = {
     name: [{type: 'required', message: 'VALIDATOR_REQUIRED'}],
@@ -60,9 +62,11 @@ export class LoginComponent implements OnInit {
     if (this.isLoginSelected && !loginSelected) {
       this.loginForm.get('name').enable();
       this.loginForm.get('password_confirmation').enable();
+      this.showInvalidCredentialsError = false;
     } else if (!this.isLoginSelected && loginSelected) {
       this.loginForm.get('name').disable();
       this.loginForm.get('password_confirmation').disable();
+      this.showEmailAlreadyInUseError = false;
     }
     this.isLoginSelected = loginSelected;
   }
@@ -92,6 +96,12 @@ export class LoginComponent implements OnInit {
 
     if (success) {
       this.router.navigate(['/fruit-list'], {replaceUrl: true});
+    } else {
+      if (this.isLoginSelected) {
+        this.showInvalidCredentialsError = true;
+      } else {
+        this.showEmailAlreadyInUseError = true;
+      }
     }
   }
 }

@@ -22,5 +22,7 @@
   "FRUIT_LIST": "Fruit list",
   "SMALL": "Small",
   "MEDIUM": "Medium",
-  "LARGE": "Large"
+  "LARGE": "Large",
+  "INVALID_CREDENTIALS": "Incorrect credentials",
+  "EMAIL_ALREADY_IN_USE": "An user with this email already exists"
 }

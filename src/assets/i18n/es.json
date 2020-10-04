@@ -22,5 +22,7 @@
   "FRUIT_LIST": "Lista de frutas",
   "SMALL": "Pequeño",
   "MEDIUM": "Mediano",
-  "LARGE": "Grande"
+  "LARGE": "Grande",
+  "INVALID_CREDENTIALS": "Credenciales incorrectas",
+  "EMAIL_ALREADY_IN_USE": "Ya existe un usuario con este correo"
 }

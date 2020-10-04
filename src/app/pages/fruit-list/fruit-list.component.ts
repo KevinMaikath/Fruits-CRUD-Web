@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {FruitModel, FruitSizeEnum} from '../../models/fruit.model';
 import {FruitService} from '../../services/fruit.service';
 import {AuthService} from '../../services/auth.service';
@@ -15,12 +15,21 @@ export class FruitListComponent implements OnInit {
   fruitList: FruitModel[] = [];
   currentFruit: FruitModel = new FruitModel();
   fruitSizeOptions: string[] = [];
-
   editModeON = false;
+
+  @ViewChild('sizeDropdown') sizeDropdown: ElementRef;
 
   constructor(private fruitService: FruitService,
               private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private renderer: Renderer2) {
+    this.renderer.listen('window', 'click', (event: Event) => {
+      if (this.sizeDropdownOpen
+        && event.target !== this.sizeDropdown.nativeElement
+        && event.target !== this.sizeDropdown.nativeElement.firstChild) {
+        this.sizeDropdownOpen = false;
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -83,5 +92,9 @@ export class FruitListComponent implements OnInit {
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  onPageClick(event) {
+
   }
 }

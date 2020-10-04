@@ -88,6 +88,20 @@
       </ng-container>
     </form>
 
+    <div class="error-container" *ngIf="showInvalidCredentialsError">
+      <div class="error-message">
+        <div class="validation-error-icon"></div>
+        <span>{{ 'INVALID_CREDENTIALS' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="error-container" *ngIf="showEmailAlreadyInUseError">
+      <div class="error-message">
+        <div class="validation-error-icon"></div>
+        <span>{{ 'EMAIL_ALREADY_IN_USE' | translate }}</span>
+      </div>
+    </div>
+
     <div class="div-button success" [class.disabled]="!loginForm.valid" (click)="onSubmit()">
       <p>{{ 'CONFIRM' | translate }}</p>
     </div>

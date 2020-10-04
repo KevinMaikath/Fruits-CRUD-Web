@@ -31,7 +31,8 @@
     <div class="form-group">
       <label for="size-input">{{ 'SIZE' | translate }}:</label>
       <div class="input-container">
-        <div id="size-input" class="size-dropdown" (click)="onSizeDropdown()" [class.open]="sizeDropdownOpen">
+        <div #sizeDropdown id="size-input" class="size-dropdown" (click)="onSizeDropdown()"
+             [class.open]="sizeDropdownOpen">
           <p>{{ currentFruit.size | translate }}</p>
           <img width="24" alt="dropdown-arrow" src="../../../assets/img/arrow-down-icon.svg">
           <div class="dropdown-content">
